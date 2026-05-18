@@ -3,7 +3,7 @@ import {
   getCoreRowModel,
   useReactTable,
   type ColumnDef,
-} from '@tanstack/react-table';
+} from "@tanstack/react-table";
 import {
   Table,
   TableBody,
@@ -14,11 +14,12 @@ import {
   Paper,
   Box,
   CircularProgress,
-} from '@mui/material';
+} from "@mui/material";
 
 type AppDataTableProps<TData extends object> = {
   data: TData[];
-  columns: ColumnDef<TData, unknown>[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  columns: ColumnDef<TData, any>[];
   isLoading?: boolean;
 };
 
@@ -35,7 +36,7 @@ export const AppDataTable = <TData extends object>({
 
   if (isLoading) {
     return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+      <Box sx={{ display: "flex", justifyContent: "center", p: 4 }}>
         <CircularProgress />
       </Box>
     );
@@ -53,7 +54,7 @@ export const AppDataTable = <TData extends object>({
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext()
+                        header.getContext(),
                       )}
                 </TableCell>
               ))}

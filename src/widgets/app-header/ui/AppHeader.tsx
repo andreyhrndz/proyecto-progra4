@@ -1,16 +1,20 @@
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
-import { UserSearchBox } from '@/features/user-search';
 import { ThemeModeToggle } from '@/features/theme-mode';
+import type { AppHeaderProps } from '../model/appHeader.types';
 
-export const AppHeader = () => {
+export const AppHeader = ({ title, userName }: AppHeaderProps) => {
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          App Template
+        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+          {title}
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <UserSearchBox />
+          {userName && (
+            <Typography variant="body2" sx={{ display: { xs: 'none', sm: 'block' } }}>
+              Hola, {userName}
+            </Typography>
+          )}
           <ThemeModeToggle />
         </Box>
       </Toolbar>

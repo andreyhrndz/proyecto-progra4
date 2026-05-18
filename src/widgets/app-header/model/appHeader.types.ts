@@ -1,3 +1,4 @@
 export type AppHeaderProps = {
-  onSearch?: (query: string) => void;
+  title: string;
+  userName?: string;
 };

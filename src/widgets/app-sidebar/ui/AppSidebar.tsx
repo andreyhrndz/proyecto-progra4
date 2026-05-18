@@ -1,16 +1,30 @@
-import { Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Drawer, List, ListItem, ListItemButton, ListItemText, Toolbar, Box } from '@mui/material';
+import type { AppSidebarProps } from '../model/appSidebar.types';
 
-export const AppSidebar = () => {
+const drawerWidth = 240;
+
+export const AppSidebar = ({ items }: AppSidebarProps) => {
   return (
-    <Drawer variant="permanent" anchor="left">
-      <List>
-        <ListItem>
-          <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Users" />
-        </ListItem>
-      </List>
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+      }}
+    >
+      <Toolbar />
+      <Box sx={{ overflow: 'auto' }}>
+        <List>
+          {items.map((item) => (
+            <ListItem key={item.path} disablePadding>
+              <ListItemButton>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </Drawer>
   );
 };
