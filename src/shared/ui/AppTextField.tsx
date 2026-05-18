@@ -1,5 +1,7 @@
 import { TextField, type TextFieldProps } from '@mui/material';
 
-export const AppTextField = (props: TextFieldProps) => {
+export type AppTextFieldProps = TextFieldProps;
+
+export const AppTextField = (props: AppTextFieldProps) => {
   return <TextField {...props} />;
 };

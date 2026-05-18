@@ -1,5 +1,14 @@
+import { type ReactNode } from 'react';
 import { Button, type ButtonProps } from '@mui/material';
 
-export const AppButton = (props: ButtonProps) => {
-  return <Button {...props} />;
+type AppButtonProps = ButtonProps & {
+  children: ReactNode;
+};
+
+export const AppButton = ({ children, ...props }: AppButtonProps) => {
+  return (
+    <Button {...props}>
+      {children}
+    </Button>
+  );
 };

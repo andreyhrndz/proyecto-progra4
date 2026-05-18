@@ -1,7 +1,15 @@
 import { httpClient } from '@/shared/api/httpClient';
-import type { AuthSchema } from '../model/auth.schema';
+import type { LoginFormValues } from '../model/auth.schema';
 
-export const login = async (credentials: AuthSchema) => {
-  const response = await httpClient.post('/auth/login', credentials);
+export type AuthResponse = {
+  token: string;
+  user: {
+    id: string;
+    email: string;
+  };
+};
+
+export const loginByEmail = async (credentials: LoginFormValues): Promise<AuthResponse> => {
+  const response = await httpClient.post<AuthResponse>('/auth/login', credentials);
   return response.data;
 };

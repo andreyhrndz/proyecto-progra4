@@ -1,5 +1,22 @@
-import { Card, type CardProps } from '@mui/material';
+import { type ReactNode } from 'react';
+import { Card, CardContent, Typography, type CardProps } from '@mui/material';
 
-export const AppCard = (props: CardProps) => {
-  return <Card {...props} />;
+type AppCardProps = CardProps & {
+  title?: string;
+  children: ReactNode;
+};
+
+export const AppCard = ({ title, children, ...props }: AppCardProps) => {
+  return (
+    <Card {...props}>
+      <CardContent>
+        {title && (
+          <Typography variant="h6" gutterBottom>
+            {title}
+          </Typography>
+        )}
+        {children}
+      </CardContent>
+    </Card>
+  );
 };

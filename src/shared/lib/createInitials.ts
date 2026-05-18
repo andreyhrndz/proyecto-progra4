@@ -1,3 +1,11 @@
-export const createInitials = (name: string) => {
-  return name.split(' ').map(n => n[0]).join('').toUpperCase();
+export const createInitials = (name: string): string => {
+  if (!name) return '';
+
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase()
+    .substring(0, 2);
 };

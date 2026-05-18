@@ -1,6 +1,11 @@
+export type UserRole = 'admin' | 'editor' | 'viewer';
+export type UserStatus = 'active' | 'inactive';
+
 export type User = {
   id: string;
-  name: string;
+  fullName: string;
   email: string;
-  role: 'admin' | 'user';
+  role: UserRole;
+  status: UserStatus;
+  avatarUrl?: string;
 };

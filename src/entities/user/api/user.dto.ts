@@ -1,6 +1,8 @@
 export type UserDto = {
   id: string;
   full_name: string;
-  email_address: string;
-  user_role: 'admin' | 'user';
+  email: string;
+  role: string;
+  status: string;
+  avatar_url?: string;
 };
