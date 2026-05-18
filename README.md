@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# Plantilla Arquitectónica Frontend con React y TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Este repositorio contiene una plantilla arquitectónica frontend de grado profesional construida con **React 19**, **TypeScript** y **Vite 8**. El proyecto está estrictamente organizado bajo la metodología **Feature-Sliced Design (FSD)** y se presenta como una base sólida, escalable y 100% tipada, preparada para integrarse con APIs REST externas.
 
-Currently, two official plugins are available:
+**Nota importante:** Este proyecto es una infraestructura base y académica; no contiene lógica de negocio real. Todos los módulos, servicios y componentes implementados sirven como cáscaras tipadas y ejemplos de organización arquitectónica.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Objetivo del proyecto
+Definir una base mantenible, consistente y predecible que minimice la deuda técnica inicial en proyectos de mediana y gran escala. Provee patrones claros para la gestión de estado, navegación, validación de formularios y visualización de datos en un entorno estandarizado.
 
-## React Compiler
+## Stack tecnológico
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Tecnología | Uso dentro del proyecto |
+| :--- | :--- |
+| **React** | Biblioteca principal para la interfaz de usuario. |
+| **TypeScript** | Lenguaje para tipado estricto y seguridad en el desarrollo. |
+| **Vite** | Herramienta de construcción y servidor de desarrollo. |
+| **TanStack Router** | Sistema de enrutamiento basado en tipos (Type-safe). |
+| **TanStack Query** | Gestión de estado asíncrono y caché de datos. |
+| **TanStack Table** | Lógica para tablas de datos complejas y tipadas. |
+| **Zustand** | Gestión de estado global ligero. |
+| **React Hook Form** | Manejo eficiente de formularios y validaciones. |
+| **Zod** | Validación de esquemas y contratos de datos. |
+| **Axios** | Cliente HTTP para servicios externos. |
+| **Material UI (MUI)** | Sistema de diseño y componentes visuales base (v6). |
 
-## Expanding the ESLint configuration
+## Arquitectura: Feature-Sliced Design (FSD)
+El código se divide en capas con responsabilidades unidireccionales:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **app**: Inicialización global (Providers, Router, Estilos).
+2.  **pages**: Composición de pantallas asociadas a rutas.
+3.  **widgets**: Bloques funcionales grandes (ej. Header, Sidebar, UserTable).
+4.  **features**: Acciones del usuario con lógica funcional (ej. Login, Búsqueda).
+5.  **entities**: Conceptos del dominio y modelos de datos (ej. User).
+6.  **shared**: Infraestructura base agnóstica al negocio (ej. UI atómica, Utils).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estructura de carpetas
+```text
+src/
+  ├── app/        # Corazón técnico e inicialización
+  ├── pages/      # Ensamblado de pantallas
+  ├── widgets/    # Bloques funcionales grandes
+  ├── features/   # Capacidades interactivas
+  ├── entities/   # Lógica y modelos de dominio
+  └── shared/     # Infraestructura base reutilizable
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Reglas de Oro
+- **Public API:** Cada slice debe exponer su contenido exclusivamente a través de `index.ts`.
+- **Dependencias:** Se debe respetar la jerarquía `app → pages → widgets → features → entities → shared`.
+- **Cero `any`:** Todo el proyecto utiliza tipado estricto y genéricos.
+- **Sin Tailwind/shadcn:** El sistema visual es puramente Material UI.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Documentación por etapas
+Para entender la evolución y los detalles técnicos de la construcción de esta plantilla, consulte los siguientes documentos:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Etapa 1: Diagnóstico y Validación del Stack](./documentacion/READMEETAPA1.md)
+- [Etapa 2: Estructura Base FSD y Alias](./documentacion/READMEETAPA2.md)
+- [Etapa 3: Configuración de la Capa App](./documentacion/READMEETAPA3.md)
+- [Etapa 4: Capa Shared (Infraestructura)](./documentacion/READMEETAPA4.md)
+- [Etapa 5: Capa Entities (Dominio User)](./documentacion/READMEETAPA5.md)
+- [Etapa 6: Capa Features (Acciones)](./documentacion/READMEETAPA6.md)
+- [Etapa 7: Capa Widgets (Composición)](./documentacion/READMEETAPA7.md)
+- [Etapa 8: Capa Pages (Ensamblado)](./documentacion/READMEETAPA8.md)
+- [Etapa 9: Configuración de TanStack Router](./documentacion/READMEETAPA9.md)
+- [Etapa 10: Validación Arquitectónica Final](./documentacion/READMEETAPA10.md)
+
+## Guía de Comandos
+```bash
+npm install     # Instalar dependencias
+npm run dev     # Servidor de desarrollo
+npm run build   # Compilación y verificación de tipos
+npm run preview # Previsualizar build de producción
+npm run lint    # Auditoría de calidad de código
 ```
+
+## Convenciones
+Las normas detalladas de nomenclatura y organización se encuentran en [conventions-feature-sliced-design.md](./conventions-feature-sliced-design.md).
