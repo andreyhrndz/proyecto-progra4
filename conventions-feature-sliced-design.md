@@ -25,6 +25,7 @@ Vite
 TanStack Router
 Material UI (MUI)
 TanStack Query
+TanStack Table
 Zustand
 React Hook Form + Zod
 Axios
