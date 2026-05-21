@@ -1,17 +1,24 @@
 # Plantilla Arquitectónica Frontend con React y TypeScript
 
 ## Descripción
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
 Este repositorio contiene una plantilla arquitectónica frontend de grado profesional construida con **React 19**, **TypeScript** y **Vite 8**. El proyecto está estrictamente organizado bajo la metodología **Feature-Sliced Design (FSD)** y se presenta como una base sólida, escalable y 100% tipada, preparada para integrarse con APIs REST externas.
 
 **Nota importante:** Este proyecto es una infraestructura base y académica; no contiene lógica de negocio real. Todos los módulos, servicios y componentes implementados sirven como cáscaras tipadas y ejemplos de organización arquitectónica.
 
 ## Objetivo del proyecto
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
 Definir una base mantenible, consistente y predecible que minimice la deuda técnica inicial en proyectos de mediana y gran escala. Provee patrones claros para la gestión de estado, navegación, validación de formularios y visualización de datos en un entorno estandarizado.
 
 ## Stack tecnológico
 
+<<<<<<< HEAD
 | Tecnología            | Uso dentro del proyecto                                     |
 | :-------------------- | :---------------------------------------------------------- |
 | **React**             | Biblioteca principal para la interfaz de usuario.           |
@@ -31,6 +38,23 @@ Definir una base mantenible, consistente y predecible que minimice la deuda téc
 
 ## Arquitectura: Feature-Sliced Design (FSD)
 
+=======
+| Tecnología | Uso dentro del proyecto |
+| :--- | :--- |
+| **React** | Biblioteca principal para la interfaz de usuario. |
+| **TypeScript** | Lenguaje para tipado estricto y seguridad en el desarrollo. |
+| **Vite** | Herramienta de construcción y servidor de desarrollo. |
+| **TanStack Router** | Sistema de enrutamiento basado en tipos (Type-safe). |
+| **TanStack Query** | Gestión de estado asíncrono y caché de datos. |
+| **TanStack Table** | Lógica para tablas de datos complejas y tipadas. |
+| **Zustand** | Gestión de estado global ligero. |
+| **React Hook Form** | Manejo eficiente de formularios y validaciones. |
+| **Zod** | Validación de esquemas y contratos de datos. |
+| **Axios** | Cliente HTTP para servicios externos. |
+| **Material UI (MUI)** | Sistema de diseño y componentes visuales base (v6). |
+
+## Arquitectura: Feature-Sliced Design (FSD)
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
 El código se divide en capas con responsabilidades unidireccionales:
 
 1.  **app**: Inicialización global (Providers, Router, Estilos).
@@ -41,7 +65,10 @@ El código se divide en capas con responsabilidades unidireccionales:
 6.  **shared**: Infraestructura base agnóstica al negocio (ej. UI atómica, Utils).
 
 ## Estructura de carpetas
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
 ```text
 src/
   ├── app/        # Corazón técnico e inicialización
@@ -53,13 +80,17 @@ src/
 ```
 
 ## Reglas de Oro
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
 - **Public API:** Cada slice debe exponer su contenido exclusivamente a través de `index.ts`.
 - **Dependencias:** Se debe respetar la jerarquía `app → pages → widgets → features → entities → shared`.
 - **Cero `any`:** Todo el proyecto utiliza tipado estricto y genéricos.
 - **Sin Tailwind/shadcn:** El sistema visual es puramente Material UI.
 
 ## Documentación por etapas
+<<<<<<< HEAD
 
 Para entender la evolución y los detalles técnicos de la construcción de esta plantilla, consulte los siguientes documentos:
 
@@ -76,6 +107,22 @@ Para entender la evolución y los detalles técnicos de la construcción de esta
 
 ## Guía de Comandos
 
+=======
+Para entender la evolución y los detalles técnicos de la construcción de esta plantilla, consulte los siguientes documentos:
+
+- [Etapa 1: Diagnóstico y Validación del Stack](./documentacion/READMEETAPA1.md)
+- [Etapa 2: Estructura Base FSD y Alias](./documentacion/READMEETAPA2.md)
+- [Etapa 3: Configuración de la Capa App](./documentacion/READMEETAPA3.md)
+- [Etapa 4: Capa Shared (Infraestructura)](./documentacion/READMEETAPA4.md)
+- [Etapa 5: Capa Entities (Dominio User)](./documentacion/READMEETAPA5.md)
+- [Etapa 6: Capa Features (Acciones)](./documentacion/READMEETAPA6.md)
+- [Etapa 7: Capa Widgets (Composición)](./documentacion/READMEETAPA7.md)
+- [Etapa 8: Capa Pages (Ensamblado)](./documentacion/READMEETAPA8.md)
+- [Etapa 9: Configuración de TanStack Router](./documentacion/READMEETAPA9.md)
+- [Etapa 10: Validación Arquitectónica Final](./documentacion/READMEETAPA10.md)
+
+## Guía de Comandos
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
 ```bash
 npm install     # Instalar dependencias
 npm run dev     # Servidor de desarrollo
@@ -84,6 +131,7 @@ npm run preview # Previsualizar build de producción
 npm run lint    # Auditoría de calidad de código
 ```
 
+<<<<<<< HEAD
 ## Prueba técnica de integración REST
 
 El proyecto incluye una validación de conectividad con una API externa para demostrar la solidez de la arquitectura:
@@ -96,3 +144,7 @@ El proyecto incluye una validación de conectividad con una API externa para dem
 ## Convenciones
 
 Las normas detalladas de nomenclatura y organización se encuentran en [CONVENTIONS.md](./CONVENTIONS.md).
+=======
+## Convenciones
+Las normas detalladas de nomenclatura y organización se encuentran en [conventions-feature-sliced-design.md](./conventions-feature-sliced-design.md).
+>>>>>>> 2d4206889008ed482fd636c2690d2c809ef17cce
