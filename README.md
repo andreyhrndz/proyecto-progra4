@@ -84,15 +84,3 @@ npm run preview # Previsualizar build de producción
 npm run lint    # Auditoría de calidad de código
 ```
 
-## Prueba técnica de integración REST
-
-El proyecto incluye una validación de conectividad con una API externa para demostrar la solidez de la arquitectura:
-
-- **API Fake:** Se utiliza [JSONPlaceholder](https://jsonplaceholder.typicode.com) como fuente de datos.
-- **Configuración:** La URL base se gestiona mediante la variable de entorno `VITE_API_BASE_URL` (ver `.env.example`).
-- **Validación técnica:** La integración valida el uso del cliente centralizado **Axios**, el manejo de estado asíncrono con **TanStack Query**, el tipado de **DTOs**, y el uso de **Mappers** para transformar datos externos al modelo de dominio.
-- **Ubicación:** La prueba es visible en la página de **Usuarios** (`/users`), donde se consumen y listan datos reales de la fake API.
-
-## Convenciones
-
-Las normas detalladas de nomenclatura y organización se encuentran en [CONVENTIONS.md](./CONVENTIONS.md).
